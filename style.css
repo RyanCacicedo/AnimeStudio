@@ -1,0 +1,570 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Roboto:wght@400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  color: #1b1b1b;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f8eeec;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  padding: 32px 0;
+}
+
+.row {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 
+
+LANDING PAGE
+
+*/
+
+#landing {
+  height: 100vh;
+}
+
+.logo__wrapper {
+  display: flex;
+}
+
+.logo {
+  width: 200px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  background-color: #f8eeec;
+}
+
+.nav__links {
+  display: flex;
+}
+
+.nav__link {
+  font-size: large;
+  font-weight: 800;
+  margin-left: 24px;
+}
+
+.nav__link--browse:hover {
+  cursor: pointer;
+}
+
+.link__hover-effect:hover {
+cursor: not-allowed;
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 32px;
+}
+
+.header__content {
+  position: relative;
+  z-index: 10;
+}
+
+.header__content h3 {
+  padding-bottom: 8px;
+}
+
+.header__title {
+  font-size: 56px;
+  font-weight: 800;
+  padding-bottom: 16px;
+}
+
+.header__para {
+  padding-bottom: 16px;
+  font-weight: 500;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 240px;
+  color: #fbfcf8;
+  background-color: #1b1b1b;
+  transition: all 300ms ease;
+  border: 2px #1b1b1b solid;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: #1b1b1b;
+}
+
+.landing__video {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 122.22px);
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: -1;
+  animation: bgvideo-transition 2s ease;
+}
+
+@keyframes bgvideo-transition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/*
+
+BROWSE 
+
+*/
+
+#browse {
+  height: 100vh;
+  position: relative;
+}
+
+#browse::before {
+  content: "";
+  background: url("./assets/wave-haikei.svg");
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.search-bar {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 240px;
+  color: #1b1b1b;
+  background-color: white;
+  transition: all 300ms ease;
+  border: 2px #1b1b1b solid;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 25px;
+  color: #1b1b1b;
+  background-color: white;
+  transition: all 300ms ease;
+  border: 2px #1b1b1b solid;
+}
+
+.fa-magnifying-glass {
+  padding-bottom: 8px;
+}
+
+.search__box {
+  border-radius: 80px 16px;
+  background: #1b1b1b;
+  margin-bottom: 32px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  margin: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.search__text {
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search__text > h3 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.search__text > h1 {
+  margin-bottom: 8px;
+}
+
+.search__text > h1,
+.search__text > h3 {
+  color: #fbfcf8;
+}
+
+.search > div {
+  position: relative;
+  filter: drop-shadow(0 1px #1b1b1b);
+}
+
+.search__bar:after {
+  content: "";
+  background: #fbfcf8;
+  width: 4px;
+  height: 16px;
+  position: absolute;
+  top: 31px;
+  right: 0px;
+  transform: rotate(135deg);
+}
+
+.search > div > input {
+  color: #fbfcf8;
+  font-size: 16px;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  padding: 16px;
+  border: solid 3px #fbfcf8;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > div > input::placeholder {
+  color: #efefef;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > div > input:focus::placeholder {
+  opacity: 1;
+}
+
+.search > div > input:focus,
+.search > div > input:not(:placeholder-shown) {
+  width: 250px;
+}
+
+.sort__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#filter {
+  border: none;
+  margin-bottom: 16px;
+  border-radius: 80px 16px;
+  background: #1b1b1b;
+  color: #fbfcf8;
+  padding: 6px 24px;
+}
+
+.sort__wrapper:after {
+  content: "";
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #fbfcf8;
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  bottom: 25px;
+}
+
+option {
+  color: #1b1b1b;
+  background-color: #e7decc;
+  font-size: 12px;
+}
+
+#filter:focus-visible {
+  outline: none;
+}
+.anime__container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.anime__organizer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.anime__title {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.anime__rating {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fa-star,
+.fa-star-half-stroke {
+  font-size: 16px;
+  margin-right: 4px;
+  color: goldenrod;
+}
+
+.fa-solid,
+.fa-regular, 
+.fa-arrow-up-right-from-square {
+  padding-top: 12px;
+}
+
+.anime__link {
+  color: white;
+  text-decoration: underline;
+  font-size: 16px;
+  transition: all 300ms ease;
+}
+.anime__link:hover {
+  font-size: 22px;
+}
+
+.anime__link:active {
+  font-size: 14px;
+}
+
+.movies__wrapper {
+  display: flex;
+  justify-content: center; /* CHANGE TO justify-content: space-between; AND FIX MOBILE RESOLUTION. */
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.movie {
+  border: 2px #e7decc solid;
+  border-radius: 8px;
+  background-color: #e7decc;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px;
+  margin: 0 16px 16px 16px;
+  cursor: pointer;
+  transition: transform 300ms ease, box-shadow 500ms ease;
+}
+
+.movie:hover {
+  transform: translate(2px, -2px);
+  box-shadow: 0px 5px 10px rgb(70 70 70 / 40%);
+}
+
+.movie__img {
+  width: 100%;
+  height: 100;
+  display: flex;
+}
+
+.movie__title {
+  text-align: center;
+  font-size: 100%;
+  margin: 16px 0 8px 0;
+}
+
+.movie__year {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.fa-spinner {
+  font-size: 56px;
+  animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*
+
+SMALL TABLETS 
+
+*/
+
+@media (max-width: 820px) {
+  .movie {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 48px;
+  }
+
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search__text {
+    align-items: center;
+  }
+
+  .movie {
+    width: 45%;
+  }
+
+  #filter {
+    margin-bottom: 32px;
+  }
+
+  .sort__wrapper::after {
+    bottom: 41.5px;
+    right: 5px;
+  }
+
+  .search__bar {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 687px) {
+  .movie {
+    width: 44%;
+  }
+
+  .search__text h1 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.25;
+  }
+}
+
+
+@media (max-width: 618px) {
+  .header__title {
+    font-size: 40px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .search__text h1 {
+    font-size: 20px;
+  }
+
+  .search__text h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 580px) {
+  .movie {
+    width: 43%;
+  }
+}
+
+@media (max-width: 538px) {
+  .nav-bar {
+    flex-direction: column;
+  }
+
+  .nav__links {
+    padding: 16px 0;
+  }
+
+  .landing__video {
+    height: calc(100vh - 162.22px);
+  }
+
+  .header__title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .header__para {
+    text-align: center;
+  }
+
+
+@media (max-width: 504px) {
+  .movie {
+    width: 40%;
+  }
+}
+
+@media (max-width: 414px) {
+  .search__text h1 {
+    font-size: 18px;
+  }
+
+  .search__text h3 {
+    font-size: 12px;
+  }
+
+  .movie {
+    width: 80%;
+  }
+ }}
