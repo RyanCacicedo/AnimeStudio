@@ -28,7 +28,7 @@
           </li>
           <li class="nav__link link__hover-effect">
             <a href="#browse" class="nav__link--browse" onclick="renderAnime(document.getElementById('anime__name').value)">Browse </a>
-          </li>
+        </li>
           <li>
             <a
               class="nav__link link__hover-effect"
@@ -74,7 +74,7 @@
                 <h1>Search for any Anime Studio film</h1>
                 <h3>Click on search icon, then type the title.</h3>
               </div>
-              <form id="search">
+              <form id="search" onsubmit="return false">
                 <input
                 id="anime__name"
                 type="text"
@@ -92,16 +92,19 @@
           </div>
         </div>
         <div class="sort__wrapper">
-          <select id="filter" onchange="renderAnime(document.getElementById('anime__name').value, this.value)">
+          <select id="filter" onchange="renderAnime(event)">
             <option value="" class="sort" disabled selected>Sort by:</option>
             <option value="ASCENDING_YEAR">Year, Ascending</option>
             <option value="DESCENDING_YEAR">Year, Descending</option>
             <option value="RATING">Rating</option>
           </select>
         </div>
+          <h2 class="anime__results"></h2>
+          <div class="anime__container"></div>
+          <div class="movies__wrapper">
+          </div>
+        </div>
       </div>
-      <div class="anime__results"></div>
-      <div class="anime__container"></div>
     </section>
   </body>
 </html>
