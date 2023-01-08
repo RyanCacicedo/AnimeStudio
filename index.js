@@ -1,17 +1,11 @@
 const searchRes = document.querySelector(".anime__results");
 const animeHTML = document.querySelector(".anime__container");
 
-async function renderAnime(title, filter) {
+async function renderAnime(title) {
   animeHTML.innerHTML = '<i class="fa-solid fa-spinner"></i>';
   try {
-    var animes = await getData(title);
-    if (filter === "ASCENDING_YEAR") {
-      animes["data"].sort((a, b) => a.year - b.year);
-    } else if (filter === "DESCENDING_YEAR") {
-      animes["data"].sort((a, b) => b.year - a.year);
-    } else if (filter === "RATING") {
-      animes["data"].sort((a, b) => b.rating - a.rating);
-    } else {
+    let animes = await getData(title);
+    {
       animes["data"].sort((a, b) => b.score - a.score);
     }
     const anime = animes["data"]
@@ -38,7 +32,7 @@ async function renderAnime(title, filter) {
       })
       .join("");
     setTimeout(() => {
-      searchRes.innerHTML = `<h2 class="anime__results">Search Results For: <br> <br> <span class="text__orange">${title.replace(
+      searchRes.innerHTML = `<h2 class="anime__results">Search Results For: <span class="search__results-text">${title.replace(
         /(?<= )[^\s]|^./g,
         (a) => a.toUpperCase()
       )}</span></h2>`;
@@ -50,44 +44,43 @@ async function renderAnime(title, filter) {
   }
 }
 
-  function getAnimeYear(year) {
-    if (year === null) {
-      return ``;
-    }
-    return `(${year})`;
+function getAnimeYear(year) {
+  if (year === null) {
+    return ``;
   }
-  
-  function getAnimeRating(rating) {
-    if (rating === null) {
-      return "";
-    }
-    var ratingHTML = "";
-    for (var i = 0; i < rating; ++i) {
-        ratingHTML += '<i class="fa-solid fa-star"></i>';
-      }
-    if (!Number.isInteger(rating)) {
-      ratingHTML += '<i class="fa-regular fa-star-half-stroke"></i>';
-    }
-    return ratingHTML;
-  }
-  
-  function getRatingRemainder(rating) {
-    var ratingHTML10 = "";
-    for (var i = 1; i < rating; ++i)
-      if (i < 10 - rating) {
-        ratingHTML10 += '<i class="fa-regular fa-star"></i>';
-      }
-    return ratingHTML10;
-  }
-  
-  async function getData(title) {
-    const fetchAnime = await fetch(`https://api.jikan.moe/v4/anime?q=${title}`);
-    const animeData = await fetchAnime.json();
-    return animeData;
-  }
-  
-  // Example of how to call the renderAnime function
- // renderAnime("Naruto", "ASCENDING_YEAR");
-  
- // https://api.jikan.moe/v4/anime
+  return `(${year})`;
+}
 
+function getAnimeRating(rating) {
+  if (rating === null) {
+    return "";
+  }
+  let ratingHTML = "";
+  for (let i = 0; i < rating; ++i) {
+    ratingHTML += '<i class="fa-solid fa-star"></i>';
+  }
+  if (!Number.isInteger(rating)) {
+    ratingHTML += '<i class="fa-regular fa-star-half-stroke"></i>';
+  }
+  return ratingHTML;
+}
+
+function getRatingRemainder(rating) {
+  let ratingHTML10 = "";
+  for (let i = 1; i < rating; ++i)
+    if (i < 10 - rating) {
+      ratingHTML10 += '<i class="fa-regular fa-star"></i>';
+    }
+  return ratingHTML10;
+}
+
+async function getData(title) {
+  const fetchAnime = await fetch(`https://api.jikan.moe/v4/anime?q=${title}`);
+  const animeData = await fetchAnime.json();
+  return animeData;
+}
+
+// Example of how to call the renderAnime function
+// renderAnime("Naruto", "ASCENDING_YEAR");
+
+// https://api.jikan.moe/v4/anime

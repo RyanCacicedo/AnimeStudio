@@ -13,28 +13,38 @@
     ></script>
   </head>
   <body>
+    <section id="announcement">
+      <div>
+        <p class="announcement__para">
+          PLEASE NOTE: THIS SITE WILL ONLY FUNCTION PROPERLY ON DESKTOP. IT IS
+          NOT SUITED FOR MOBILE BROWSERS DUE TO ISSUES WITH THE API. THIS SITE
+          IS STRICTLY FOR PERSONAL USE.
+        </p>
+      </div>
+    </section>
     <section id="landing">
       <nav class="nav-bar">
         <figure class="logo__wrapper">
-          <img class="logo" src="./assets/anime-studio-high-resolution-logo-black-on-transparent-background.png" alt="" />
+          <img
+            class="logo"
+            src="./assets/anime-studio-high-resolution-logo-black-on-transparent-background.png"
+            alt=""
+          />
         </figure>
         <ul class="nav__links">
           <li>
-            <a
-              class="nav__link link__hover-effect"
-              href="#"
-              >About</a
-            >
+            <a class="nav__link link__hover-effect" href="#">About</a>
           </li>
           <li class="nav__link link__hover-effect">
-            <a href="#browse" class="nav__link--browse" onmousedown="renderAnime(document.getElementById('anime__name').value)">Browse </a>
-        </li>
-          <li>
             <a
-              class="nav__link link__hover-effect"
-              href="#"
-              >Contact</a
-            >
+              href="#browse"
+              class="nav__link--browse"
+              onmousedown="renderAnime(document.getElementById('anime__name').value)"
+              >Browse
+            </a>
+          </li>
+          <li>
+            <a class="nav__link link__hover-effect" href="#">Contact</a>
           </li>
         </ul>
       </nav>
@@ -45,7 +55,14 @@
           <div class="header__para">
             <p>The best place to view all anime films!</p>
           </div>
-          <a href="#browse"><button class="btn" onmousedown="renderAnime(document.getElementById('anime__name').value)">Start Browsing</button></a>
+          <a href="#browse"
+            ><button
+              class="btn"
+              onmousedown="renderAnime(document.getElementById('anime__name').value)"
+            >
+              Start Browsing
+            </button></a
+          >
         </div>
       </header>
       <video
@@ -57,7 +74,7 @@
         onloadstart="this.volume = 0.5"
       >
         <source
-          src="assets/Anime Studio Background Video.mp4" 
+          src="assets/Anime Studio Background Video.mp4"
           type="video/mp4"
         />
       </video>
@@ -76,33 +93,25 @@
               </div>
               <form id="search" onsubmit="return false">
                 <input
-                id="anime__name"
-                type="text"
-                placeholder="Search by Name"
-                class="search-bar"
+                  id="anime__name"
+                  type="text"
+                  placeholder="Search by Name"
+                  class="search-bar"
                 />
                 <button
-                type="submit"
-                class="search-button"
-                onmousedown="renderAnime(document.getElementById('anime__name').value)"
+                  type="submit"
+                  class="search-button"
+                  onmousedown="renderAnime(document.getElementById('anime__name').value)"
                 >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="sort__wrapper">
-          <select id="filter" onchange="renderAnime(event)">
-            <option value="" class="sort" disabled selected>Sort by:</option>
-            <option value="ASCENDING_YEAR">Year, Ascending</option>
-            <option value="DESCENDING_YEAR">Year, Descending</option>
-            <option value="RATING">Rating</option>
-          </select>
-        </div>
+
           <h2 class="anime__results"></h2>
           <div class="anime__container"></div>
-          <div class="movies__wrapper">
-          </div>
+          <div class="movies__wrapper"></div>
         </div>
       </div>
     </section>
