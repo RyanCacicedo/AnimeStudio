@@ -89,3 +89,5 @@ async function renderAnime(title, filter) {
   // Example of how to call the renderAnime function
  // renderAnime("Naruto", "ASCENDING_YEAR");
   
+ // https://api.jikan.moe/v4/anime
+

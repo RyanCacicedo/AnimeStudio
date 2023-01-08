@@ -27,7 +27,7 @@
             >
           </li>
           <li class="nav__link link__hover-effect">
-            <a href="#browse" class="nav__link--browse" onclick="renderAnime(document.getElementById('anime__name').value)">Browse </a>
+            <a href="#browse" class="nav__link--browse" onmousedown="renderAnime(document.getElementById('anime__name').value)">Browse </a>
         </li>
           <li>
             <a
@@ -45,7 +45,7 @@
           <div class="header__para">
             <p>The best place to view all anime films!</p>
           </div>
-          <a href="#browse"><button class="btn" onclick="renderAnime(document.getElementById('anime__name').value)">Start Browsing</button></a>
+          <a href="#browse"><button class="btn" onmousedown="renderAnime(document.getElementById('anime__name').value)">Start Browsing</button></a>
         </div>
       </header>
       <video
@@ -84,7 +84,7 @@
                 <button
                 type="submit"
                 class="search-button"
-                onclick="renderAnime(document.getElementById('anime__name').value)"
+                onmousedown="renderAnime(document.getElementById('anime__name').value)"
                 >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
