@@ -4,7 +4,7 @@ const animeHTML = document.querySelector(".anime__container");
 async function renderAnime(title, filter) {
   animeHTML.innerHTML = '<i class="fa-solid fa-spinner"></i>';
   try {
-    let animes = await getData(title);
+    var animes = await getData(title);
     if (filter === "ASCENDING_YEAR") {
       animes["data"].sort((a, b) => a.year - b.year);
     } else if (filter === "DESCENDING_YEAR") {
@@ -61,8 +61,8 @@ async function renderAnime(title, filter) {
     if (rating === null) {
       return "";
     }
-    let ratingHTML = "";
-    for (let i = 0; i < rating; ++i) {
+    var ratingHTML = "";
+    for (var i = 0; i < rating; ++i) {
         ratingHTML += '<i class="fa-solid fa-star"></i>';
       }
     if (!Number.isInteger(rating)) {
@@ -72,8 +72,8 @@ async function renderAnime(title, filter) {
   }
   
   function getRatingRemainder(rating) {
-    let ratingHTML10 = "";
-    for (let i = 1; i < rating; ++i)
+    var ratingHTML10 = "";
+    for (var i = 1; i < rating; ++i)
       if (i < 10 - rating) {
         ratingHTML10 += '<i class="fa-regular fa-star"></i>';
       }
