@@ -550,6 +550,15 @@ SMALL TABLETS
   .movie {
     width: 83%;
   }
+
+  #announcement {
+    height: 7vh;
+    background-color: #1b1b1b;
+  }
+  
+  .announcement__para {
+    
+  }
 }
 
 @media (max-width: 538px) {
